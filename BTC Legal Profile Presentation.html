@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BTC Legal | Senior Counsel Manny Sigamoney</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --gold: #c5a059;
+            --gold-bright: #e0c28d;
+            --bg: #050505;
+            --surface: #0f0f12;
+            --glass: rgba(255, 255, 255, 0.03);
+            --border: rgba(197, 160, 89, 0.3);
+            --text: #ffffff;
+            --text-dim: #a0a0a0;
+            --transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
+        * { margin:0; padding:0; box-sizing:border-box; }
+        html { scroll-behavior: smooth; }
+        body { background: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; overflow-x: hidden; line-height: 1.6; }
+
+        /* --- NAVIGATION ARCHITECTURE (ANTI-OBSTRUCTION) --- */
+        header {
+            position: fixed; width: 100%; top: 0; z-index: 2000;
+            background: rgba(5,5,5,0.95); backdrop-filter: blur(25px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .header-top {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 15px 8%; border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .logo { 
+            font-family: 'Cinzel'; font-size: 1.8rem; letter-spacing: 5px; 
+            color: var(--gold); text-decoration: none; font-weight: 700;
+            transition: var(--transition);
+        }
+        .logo:hover { color: #fff; text-shadow: 0 0 15px var(--gold); }
+
+        .contact-pill {
+            background: var(--gold); color: #000; text-decoration: none;
+            padding: 10px 20px; font-weight: 800; font-size: 0.85rem;
+            border-radius: 2px; transition: var(--transition);
+            display: flex; align-items: center; gap: 10px;
+        }
+        .contact-pill:hover { background: #fff; transform: translateY(-2px); box-shadow: 0 5px 20px rgba(197, 160, 89, 0.4); }
+
+        nav { display: flex; justify-content: center; gap: 40px; padding: 15px 0; }
+        .nav-link { 
+            text-decoration: none; color: var(--text-dim); font-size: 0.7rem; 
+            letter-spacing: 3px; transition: var(--transition); text-transform: uppercase;
+            font-weight: 600; position: relative;
+        }
+        .nav-link::after { content: ''; position: absolute; bottom: -5px; left: 0; width: 0; height: 1px; background: var(--gold); transition: var(--transition); }
+        .nav-link:hover { color: var(--gold); }
+        .nav-link:hover::after { width: 100%; }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(to right, rgba(0,0,0,0.95) 30%, transparent),
+                        url('https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=1920&q=80');
+            background-size: cover; background-position: center; background-attachment: fixed;
+            display: flex; align-items: center; padding: 0 10%;
+        }
+
+        .hero-text { max-width: 800px; }
+        .hero-text h1 { font-family: 'Cinzel'; font-size: clamp(3.5rem, 8vw, 6rem); line-height: 0.85; margin-bottom: 20px; }
+        .hero-text span { color: var(--gold); display: block; }
+        
+        /* FLOATING STATS CARDS */
+        .stats-wrap { display: flex; gap: 30px; margin-top: 50px; }
+        .stat-card {
+            background: var(--glass); border: 1px solid var(--border);
+            padding: 25px 40px; backdrop-filter: blur(10px);
+            transition: var(--transition); animation: float 4s ease-in-out infinite;
+        }
+        .stat-card:hover { transform: translateY(-10px) scale(1.05); background: rgba(197, 160, 89, 0.1); border-color: #fff; }
+        .stat-card h2 { font-family: 'Cinzel'; color: var(--gold); font-size: 2.5rem; }
+        .stat-card p { font-size: 0.6rem; letter-spacing: 2px; color: var(--text-dim); }
+
+        @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-15px); } }
+
+        /* --- PRACTICE AREAS --- */
+        .section { padding: 140px 10%; }
+        .section-header { text-align: center; margin-bottom: 80px; }
+        .section-header h2 { font-family: 'Cinzel'; font-size: 3.5rem; letter-spacing: 5px; }
+        .section-header .line { width: 80px; height: 3px; background: var(--gold); margin: 20px auto; }
+
+        .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px; }
+        
+        .service-box {
+            position: relative; height: 500px; overflow: hidden;
+            border: 1px solid var(--border); transition: var(--transition);
+        }
+        .service-box img { width: 100%; height: 100%; object-fit: cover; opacity: 0.25; transition: 0.8s; filter: grayscale(100%); }
+        .service-box:hover img { opacity: 0.6; transform: scale(1.15); filter: grayscale(0%); }
+        .service-box:hover { border-color: #fff; box-shadow: 0 20px 50px rgba(0,0,0,0.5); }
+        
+        .service-content {
+            position: absolute; bottom: 0; padding: 40px;
+            background: linear-gradient(transparent, #000); width: 100%;
+        }
+        .service-content h3 { font-family: 'Cinzel'; font-size: 1.5rem; margin-bottom: 10px; color: var(--gold); }
+
+        /* --- PARTNER SPOTLIGHT (Using Manny's Portrait) --- */
+        .partner-area {
+            background: var(--surface);
+            display: grid; grid-template-columns: 1fr 1fr; gap: 100px;
+            align-items: center; padding: 120px 10%;
+            border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+        }
+
+        .portrait-container { position: relative; }
+        .portrait-frame {
+            border: 1px solid var(--gold); padding: 20px;
+            position: relative; z-index: 1; transition: var(--transition);
+        }
+        .portrait-frame img { width: 100%; display: block; transition: var(--transition); }
+        .portrait-container::after {
+            content: ''; position: absolute; top: -20px; left: -20px; width: 100%; height: 100%;
+            border: 1px solid rgba(255,255,255,0.1); z-index: 0;
+        }
+        .portrait-container:hover .portrait-frame { transform: translate(15px, -15px); border-color: #fff; }
+
+        /* --- JURISDICTIONS --- */
+        .office-card {
+            background: #08080a; padding: 50px; border-left: 4px solid var(--gold);
+            transition: var(--transition);
+        }
+        .office-card:hover { background: #111; transform: translateX(10px); }
+        .office-card h3 { font-family: 'Cinzel'; color: var(--gold); margin-bottom: 15px; }
+
+        /* --- FOOTER --- */
+        footer { padding: 100px 10% 50px; background: #020202; border-top: 1px solid var(--gold); }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 60px; }
+        .footer-logo { font-family: 'Cinzel'; font-size: 2rem; color: var(--gold); margin-bottom: 20px; }
+
+        /* RESPONSIVE FIXES */
+        @media (max-width: 968px) {
+            .partner-area, .footer-grid { grid-template-columns: 1fr; }
+            .hero-text h1 { font-size: 3.5rem; }
+            .stats-wrap { flex-direction: column; }
+            nav { gap: 15px; flex-wrap: wrap; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="header-top">
+        <a href="#" class="logo">BTC LEGAL</a>
+        <a href="tel:0839915600" class="contact-pill"><i class="fas fa-phone"></i> 083 991 5600</a>
+    </div>
+    <nav>
+        <a href="#expertise" class="nav-link">Expertise</a>
+        <a href="#jurisdictions" class="nav-link">Jurisdictions</a>
+        <a href="#profile" class="nav-link">Lead Partner</a>
+        <a href="mailto:Padiachaykassigan@gmail.com" class="nav-link">Private Office</a>
+    </nav>
+</header>
+
+<section class="hero">
+    <div class="hero-text">
+        <p style="letter-spacing: 10px; color: var(--gold); margin-bottom: 15px; font-weight: bold;">PREMIUM COUNSEL</p>
+        <h1>Legal <br><span>Architecture.</span></h1>
+        <p style="max-width: 600px; color: var(--text-dim); font-size: 1.1rem;">
+            BTC Legal Enterprises: Where structural precision meets elite defense. Founded 2023. Dedicated to the architectural mastery of high-stakes law.
+        </p>
+        
+        <div class="stats-wrap">
+            <div class="stat-card">
+                <h2>23</h2>
+                <p>SENIOR PARTNERS</p>
+            </div>
+            <div class="stat-card" style="animation-delay: 1s;">
+                <h2>2.1k</h2>
+                <p>SUCCESSFUL RESOLUTIONS</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="expertise" class="section">
+    <div class="section-header">
+        <h2>Practice Areas</h2>
+        <div class="line"></div>
+    </div>
+    <div class="grid-3">
+        <div class="service-box">
+            <img src="https://images.unsplash.com/photo-1521791055366-0d553872125f?auto=format&fit=crop&w=800&q=80">
+            <div class="service-content">
+                <h3>Corporate Architecture</h3>
+                <p style="color: var(--text-dim);">Structural legal advice for the modern enterprise.</p>
+            </div>
+        </div>
+        <div class="service-box">
+            <img src="https://images.unsplash.com/photo-1505664194779-8beaceb93744?auto=format&fit=crop&w=800&q=80">
+            <div class="service-content">
+                <h3>High-Stakes Litigation</h3>
+                <p style="color: var(--text-dim);">Aggressive representation in high-court chambers.</p>
+            </div>
+        </div>
+        <div class="service-box">
+            <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=800&q=80">
+            <div class="service-content">
+                <h3>Trust & Estate</h3>
+                <p style="color: var(--text-dim);">Securing wealth through architectural precision.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="profile" class="partner-area">
+    <div class="portrait-container">
+        <div class="portrait-frame">
+            <img src="https://i.postimg.cc/J42dSjcH/Screenshot-(78).png" alt="Manny Sigamoney">
+        </div>
+    </div>
+    <div class="partner-text">
+        <h4 style="color: var(--gold); letter-spacing: 5px; margin-bottom: 15px;">DIRECTOR & SENIOR PARTNER</h4>
+        <h2 style="font-family: 'Cinzel'; font-size: 3.5rem; margin-bottom: 30px;">Manny Sigamoney</h2>
+        <p style="font-size: 1.2rem; border-left: 3px solid var(--gold); padding-left: 30px; margin-bottom: 40px;">
+            "We don't just interpret the law; we build the strategy. Our firm is founded on the principle that every case requires a unique architectural blueprint to succeed."
+        </p>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+            <p><i class="fas fa-envelope" style="color: var(--gold); margin-right: 15px;"></i> Padiachaykassigan@gmail.com</p>
+            <p><i class="fas fa-map-marker-alt" style="color: var(--gold); margin-right: 15px;"></i> Sandton, JHB</p>
+        </div>
+    </div>
+</section>
+
+<section id="jurisdictions" class="section">
+    <div class="section-header">
+        <h2>National Reach</h2>
+        <div class="line"></div>
+    </div>
+    <div class="grid-3">
+        <div class="office-card">
+            <h3>Johannesburg</h3>
+            <p>128 Sandton Drive, Tower B<br>Gauteng, 2196</p>
+        </div>
+        <div class="office-card">
+            <h3>Cape Town</h3>
+            <p>V&A Waterfront, Silo District<br>Western Cape, 8001</p>
+        </div>
+        <div class="office-card">
+            <h3>Pretoria</h3>
+            <p>90 Florence Ribeiro Ave<br>Muckleneuk, 0181</p>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="footer-grid">
+        <div>
+            <div class="footer-logo">BTC LEGAL</div>
+            <p style="color: var(--text-dim);">Architectural Law for the High-Performance Individual. Founded 2023.</p>
+        </div>
+        <div>
+            <h4 style="color: var(--gold); margin-bottom: 20px;">JURISDICTIONS</h4>
+            <p>Commercial Law</p>
+            <p>Criminal Defense</p>
+            <p>Trust Management</p>
+        </div>
+        <div>
+            <h4 style="color: var(--gold); margin-bottom: 20px;">CONNECT</h4>
+            <p>LinkedIn</p>
+            <p>Twitter</p>
+            <p>Instagram</p>
+        </div>
+    </div>
+    <div style="text-align: center; margin-top: 80px; padding-top: 30px; border-top: 1px solid #111; color: #444; font-size: 0.8rem; letter-spacing: 2px;">
+        &copy; 2023 DIGITAL ARCHITECTURE PORTFOLIO | BTC LEGAL
+    </div>
+</footer>
+
+</body>
+</html>
+
